@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Model Demo</title>
+</head>
+<body>
+    <h1>Ask a Question about Sana Commerce</h1>
+    <p>
+        Ask info about info from two topics <a target="_blank" href="https://support.sana-commerce.com/Content/Sana-User-Guide/Basics/Store-Information.htm?tocpath=Sana%20User%20Guide%7CBasics%7C_____1">Basics</a> and <a target="_blank" href="https://support.sana-commerce.com/Content/Sana-User-Guide/Ordering-and-Checkout/Ordering-Settings/Registration.htm?tocpath=Sana%20User%20Guide%7COrdering%20%2526%20Checkout%7COrdering%20Settings%7C_____1">Ordering Settings</a> from Sana help site
+    </p>
+    <form id="myform" action="https://script.google.com/macros/s/AKfycbyy7MD91e9dQpQ4vUhm26C3X07ZquBZ04njGwFVj5WivgZytJ00hr3lK0QZ6Kdjrerc9w/exec" method="post">
+        <div>
+            <textarea id="question" name="question" style="width: 300px;">What is Sana Commerce?</textarea><br/>
+            <button id="doSubmit">Ask</button>
+        </div>
+        <h3>Response:</h3>
+        <div id="responseArea"></div>
+        <input type="hidden" id="answer" name="answer" />
+        <input type="hidden" id="good" name="good" />
+
+        <div id="feedback" style="display: none;">
+            <p><i>How do you evaluate this answer?</i></p>
+            <input type="button" id="feedbackGood" value="Good" />
+            <input type="button" id="feedbackMaybe" value="I don't know" />
+            <input type="button" id="feedbackBad" value="Bad" />
+        </div>
+        <div id="submittingFeedback" style="display: none;">
+            <i>Submitting...</i>
+        </div>
+    </form>
+
+    <script>
+const _0x55d9ca=_0x34f5;(function(_0x59cd3e,_0x2f58c5){const _0x12a3fa=_0x34f5,_0x1b537d=_0x59cd3e();while(!![]){try{const _0x594a1f=-parseInt(_0x12a3fa(0x94))/0x1+-parseInt(_0x12a3fa(0xa3))/0x2*(parseInt(_0x12a3fa(0x9c))/0x3)+-parseInt(_0x12a3fa(0xa8))/0x4+-parseInt(_0x12a3fa(0x80))/0x5+parseInt(_0x12a3fa(0x7d))/0x6*(parseInt(_0x12a3fa(0x9e))/0x7)+-parseInt(_0x12a3fa(0x81))/0x8*(-parseInt(_0x12a3fa(0xa0))/0x9)+parseInt(_0x12a3fa(0xa4))/0xa*(parseInt(_0x12a3fa(0x96))/0xb);if(_0x594a1f===_0x2f58c5)break;else _0x1b537d['push'](_0x1b537d['shift']());}catch(_0x2fc118){_0x1b537d['push'](_0x1b537d['shift']());}}}(_0x3b2a,0xec5bd));function _0x34f5(_0x59ceb4,_0x357c49){const _0x3b2a43=_0x3b2a();return _0x34f5=function(_0x34f529,_0x30c549){_0x34f529=_0x34f529-0x7d;let _0xbfe0c5=_0x3b2a43[_0x34f529];return _0xbfe0c5;},_0x34f5(_0x59ceb4,_0x357c49);}function _0x3b2a(){const _0x652a17=['Error:\x20','1109149gbtjFa','Loading...','11vWzUUg','onclick','json','addEventListener','innerHTML','myform','3DEdnEV','forms','7DQQTTH','getElementById','45ciwEzz','Enter','message','1341594UAqRWw','27732730juJyLQ','good','maybe','feedbackBad','7161000PWTMiO','keydown','stringify','37542vHVLPC','application/json','submit','23395ZQMLLY','2821552TYbIDU','display','bad','value','doSubmit','answer','choices','style','ft:gpt-4o-2024-08-06:personal:basicandorderingsettings:AMDG9X3o','responseArea','POST','https://api.openai.com/v1/chat/completions','content','select','feedbackMaybe','block','submittingFeedback','key'];_0x3b2a=function(){return _0x652a17;};return _0x3b2a();}const feedbackBlock=document[_0x55d9ca(0x9f)]('feedback'),userInput=document[_0x55d9ca(0x9f)]('question');userInput[_0x55d9ca(0x8e)](),userInput[_0x55d9ca(0x99)](_0x55d9ca(0xa9),function(_0x18bb00){const _0x310f16=_0x55d9ca;_0x18bb00['ctrlKey']&&_0x18bb00[_0x310f16(0x92)]===_0x310f16(0xa1)&&askOpenAI();}),document[_0x55d9ca(0x9f)](_0x55d9ca(0x85))[_0x55d9ca(0x97)]=function(){return askOpenAI(),![];},document[_0x55d9ca(0x9f)]('feedbackGood')[_0x55d9ca(0x97)]=function(){const _0x1c345c=_0x55d9ca;return postFeedback(_0x1c345c(0xa5));},document[_0x55d9ca(0x9f)](_0x55d9ca(0x8f))[_0x55d9ca(0x97)]=function(){const _0x117e38=_0x55d9ca;return postFeedback(_0x117e38(0xa6));},document[_0x55d9ca(0x9f)](_0x55d9ca(0xa7))['onclick']=function(){const _0x1f7fae=_0x55d9ca;return postFeedback(_0x1f7fae(0x83));};function postFeedback(_0x4e5419){const _0x37b94d=_0x55d9ca;return document['getElementById'](_0x37b94d(0xa5))['value']=_0x4e5419,feedbackBlock[_0x37b94d(0x88)]['display']='none',document['getElementById'](_0x37b94d(0x91))['style']['display']=_0x37b94d(0x90),document[_0x37b94d(0x9d)][_0x37b94d(0x9b)][_0x37b94d(0x7f)](),![];}async function askOpenAI(){const _0x1ec0f7=_0x55d9ca,_0x5887e3=document[_0x1ec0f7(0x9f)]('question')[_0x1ec0f7(0x84)],_0x3e5c1e=document[_0x1ec0f7(0x9f)](_0x1ec0f7(0x8a)),_0x49ac9b=document[_0x1ec0f7(0x9f)](_0x1ec0f7(0x86));if(!_0x5887e3){_0x3e5c1e[_0x1ec0f7(0x9a)]='Please\x20enter\x20a\x20question.';return;}_0x3e5c1e[_0x1ec0f7(0x9a)]=_0x1ec0f7(0x95);const _0x19f146='Bearer\x20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';try{const _0x2d3f9d=await fetch(_0x1ec0f7(0x8c),{'method':_0x1ec0f7(0x8b),'headers':{'Content-Type':_0x1ec0f7(0x7e),'Authorization':_0x19f146},'body':JSON[_0x1ec0f7(0xaa)]({'model':_0x1ec0f7(0x89),'messages':[{'role':'user','content':_0x5887e3}]})}),_0x4044a8=await _0x2d3f9d[_0x1ec0f7(0x98)](),_0x5b8080=_0x4044a8[_0x1ec0f7(0x87)][0x0][_0x1ec0f7(0xa2)][_0x1ec0f7(0x8d)];_0x3e5c1e[_0x1ec0f7(0x9a)]=_0x5b8080,_0x49ac9b[_0x1ec0f7(0x84)]=_0x5b8080,feedbackBlock[_0x1ec0f7(0x88)][_0x1ec0f7(0x82)]='block';}catch(_0x4c7ac1){_0x3e5c1e[_0x1ec0f7(0x9a)]=_0x1ec0f7(0x93)+_0x4c7ac1['message'];}}
+    </script>
+</body>
+</html>
